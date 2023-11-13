@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/button.css'}">
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/pattern.css'}">
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/input.css'}">
+    <style>
+        /* Ваш CSS-код здесь */
+        .mx-auto {
+            margin: 0 auto; /* Горизонтальное центрирование */
+            display: table; /* Чтобы сработало горизонтальное центрирование */
+        }
+    </style>
+</head>
+<body class="col-8 mx-auto ">
+<div th:insert="blocks/header :: header"></div>
+
+<div class="container">
+    <div class="container" id="con">
+<br>
+    <br>
+    <br>
+    <h1 style="color:#6c757d;">ADD USER</h1>
+    <br>
+    <br>
+    <br>
+    <form th:action="@{'/adduser'}" method="post" class="mx-auto">
+        <div class="input-group" >
+            <input required="" type="text" name="name" autocomplete="off" class="input">
+            <label class="user-label">Name</label>
+        </div><br>
+        <div class="input-group">
+            <input required="" type="text" name="surname" autocomplete="off" class="input">
+            <label class="user-label">Surname</label>
+        </div><br>
+        <div class="input-group">
+            <input required="" type="number" name="exam" autocomplete="off" class="input">
+            <label class="user-label">Exam</label>
+        </div><br>
+        <div class="input-group">
+            <input required="" type="text" name="mark" autocomplete="off" class="input">
+            <label class="user-label">Mark</label>
+        </div><br>
+        <button class="btn" id="adduserbtn"> Button</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/bootstrap.min.css'}">
+    <link type="text/css" rel="stylesheet" th:href="@{'/resources/static/bodybackground.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/pattern.css'}">
+    <link type="text/css" rel="stylesheet" th:href="@{'/css/deletebut.css'}">
+
+</head>
+<body class="row g-5 col-12 mx-auto">
+<div th:insert="blocks/header :: header"></div>
+<table class="table-dark table-striped-columns">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Exam</th>
+        <th scope="col">Mark</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="stud : ${stu}">
+        <td th:text="${stud.id}"></td>
+        <td th:text="${stud.name}"></td>
+        <td th:text="${stud.surname}"></td>
+        <td th:text="${stud.exam}"></td>
+        <td th:text="${stud.mark}"></td>
+        <th>
+            <form th:action="@{'/deletestudent'}" method="post">
+                <button class="btn" id="deletebut">
+                    <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
+                        <path transform="translate(-2.5 -1.25)"
+                              d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z"
+                              id="Fill"></path>
+                    </svg>
+                    <input type="hidden" name="id" th:value="${stud.id}">
+                </button>
+            </form>
+        </th>
+    </tr>
+
+    </tbody>
+</table>
+
+
+</body>
+</html>
